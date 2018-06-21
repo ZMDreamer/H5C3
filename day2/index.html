@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jQueryHdPaging/jquery-1.11.1.min.js"></script>
+    <script src="./jQueryHdPaging/paging.css"></script>
+    <script src="./jQueryHdPaging/paging.js"></script>
+</head>
+<body>
+    <div class="box" id="box"></div>
+</body>
+</html>
+<script>
+$('#box').paging({
+    initPageNo: 1, // 初始页码
+    totalPages: 30, //总页数
+    totalCount: '合计300条数据', // 条目总数
+    slideSpeed: 600, // 缓动速度。单位毫秒 
+    callback: function(page) { // 回调函数 
+        console.log(page);
+    }
+})
+
+</script>
