@@ -1,5 +1,8 @@
 /* 第一屏css样式 start */
-
+html,body,section{
+    min-width: 1000px;
+    min-height: 600px;
+}
 #fp-nav ul li a span {
     background-color: #f40;
 }
@@ -337,7 +340,23 @@
 }
 /* 第七屏样式over */
 /* 第八屏样式 start */
-.section8 {
+#circlr {
+    cursor: move;
+    margin: 0 auto;
+    min-height: 100px;
+    position: relative;
+  }
+  #circlr #loader {
+    background: url(../images/loader.gif) center center no-repeat;
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+/* 九屏样式 start */
+.section9 {
     background: url(../images/ksgw.png);
 }
 .beginshopping {
@@ -364,7 +383,7 @@
     left: 0;
     right: 0;
 }
-/* 第八屏样式 over */
+/* 第九屏样式 over */
 /* 动画效果 */
 
 .fly-updown {

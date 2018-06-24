@@ -5,7 +5,7 @@ $(function () {
         $.fn.fullpage.moveSectionDown();
      });
     $('#fullpage').fullpage({
-        sectionsColor: ['#fadd67', '#84a2d4', '#ef674d', '#fed', '#d04759', '#84d9ed', '#8ac060'],
+        sectionsColor: ['#fadd67', '#84a2d4', '#ef674d', '#fed', '#d04759', '#84d9ed','#8ac060'],
         navigation: true,
         scrollingSpeed: 1200,
         afterLoad: function (archorLink, index) {
@@ -39,11 +39,8 @@ $(function () {
 
         },
         onLeave: function (index, nextIndex, direction) {
-            if (index ==1 &&nextIndex==2) {
-                $(".next").fadeOut();
-            }
+            $('.next').fadeOut();
             if (index == 2 && nextIndex == 3 && flag == true) {
-                $(".next").fadeOut();
                 $('.cover').show();
                 $('.shirt-02').show().animate({
                     bottom: -(pageHeight - 250),
@@ -51,13 +48,13 @@ $(function () {
                     width: 207,
                     height: 166
                 }, 1500, function () {
+                    $('.next').fadeIn();
                     $('.img-01-a').fadeTo(1000, 1);
                     $('.btn-01-a').fadeTo(1000, 1);
                 });
                 $('.cover').show();
             }
             if (index == 3 && nextIndex == 4) {
-                $(".next").fadeOut();
                 $('.shirt-02').hide();
                 $('.img-t1f').show().animate({
                     bottom: -(pageHeight - 250 + 50),
@@ -79,7 +76,6 @@ $(function () {
             }
             // 第四屏到第五屏动画
             if (index == 4 && nextIndex == 5) {
-                $(".next").fadeOut();
                 setTimeout(() => {
                     $('.hand-05').animate({
                         bottom: 0
@@ -106,7 +102,6 @@ $(function () {
             //第五屏到第六屏动画start
             if (index == 5 && nextIndex == 6) {
                 //沙发变小掉入盒子中和子掉入小车,移动背景图片,云下面的字出现,送货员显示,门打开收货人出现, 头上的字出现
-                $(".next").fadeOut();
                 $('.t1f-05').animate({
                     bottom: -(pageHeight - 500),
                     width: 65,
@@ -157,7 +152,6 @@ $(function () {
             //第五屏到第六屏动画over
             //第七屏的动画效果
             if (index == 6 && nextIndex == 7) {
-                $(".next").fadeOut();
                 setTimeout(() => {
                     $('.stars>img').first('img').animate({
                         opacity: 1
@@ -176,9 +170,8 @@ $(function () {
             }
             //第七屏动画完成
              //第八屏动画效果
-             if (index ==7&&nextIndex==8) {
+             if (index ==8&&nextIndex==9) {
                 //小手跟着鼠标移动
-                $(".next").fadeOut();
 
                 setTimeout(() => {
                    $('.next').fadeIn()

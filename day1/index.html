@@ -13,10 +13,13 @@
     <script src="./js/jquery.easing.1.3.js"></script>
     <script src="./js/jquery.fullPage.min.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/circlr.min.js"></script>
 </head>
 
 <body>
+       
     <div id="fullpage">
+        
         <!-- 第一屏内容 start -->
         <div class="section section1">
             <img src="./images/t1wsqsfgnaxxxmjxp6-470-50.png" class="fly fly-updown" alt="">
@@ -117,8 +120,30 @@
             <img src="./images/t1wrqqfbddxxcbi8jm-72-40.png" class="goodComment">
         </div>
         <!-- 第七屏over -->
-        <!-- 第八屏start -->
-        <div class="section section8">
+        <!-- 第八屏送车界面 -->
+        <div class="section">
+            <div class="container">
+                <div id="circlr">
+                    <div id="loader"></div>
+                </div>
+            </div>
+            <script>
+                for (var i = 1; i <= 74; i++) {
+                    var img = $(`<img data-src="./picture/${i}.png" />`)
+                    $('#circlr').append(img);
+                }
+            </script>
+            <script type="text/javascript">
+                $(function () {
+                    var crl = circlr('circlr', {
+                        scroll: true,
+                        loader: 'loader'
+                    })
+                })
+            </script>
+        </div>
+        <!-- 第九屏start -->
+        <div class="section section9">
             <a href="#" class="beginshopping">
                 <img src="./images/t12pksfedaxxx51i3j-389-156.png">
                 <img src="./images/t1znypfhxdxxcubi7j-389-160.gif" class="btn-08">
@@ -128,14 +153,18 @@
             <img src="./images/hand-08.png" class="hand-08">
 
         </div>
-        <!-- 第八屏over -->
+        <!-- 第九屏over -->
+       
     </div>
-    <!-- 两个固定定位 -->
+        <!-- 两个固定定位 -->
+
     <a href="#">
-        <img src="./images/t1ldiffkjfxxxzhxzd-101-101.png" class="go" alt="">
-    </a>
-    <!-- 点击去到下一页 -->
-    <a href="#"><img src="./images/next.png" class = "next"></a>
+            <img src="./images/t1ldiffkjfxxxzhxzd-101-101.png" class="go" alt="">
+        </a>
+        <!-- 点击去到下一页 -->
+        <a href="#">
+            <img src="./images/next.png" class="next">
+        </a>
 </body>
 
 </html>
