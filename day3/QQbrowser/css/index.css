@@ -1,0 +1,131 @@
+
+/* 圆圈的样式start */
+.circles {
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    transition: all 1s;
+}
+.row2 {
+ /* -webkit-perspective: 1000px; */
+ perspective: 1000px;
+}
+/*第一行的样式 */
+.circle1 {
+    width: 100px;
+    height: 100px;
+    left: 10%;
+    top: 0;
+}
+.circle2 {
+    width: 200px;
+    height: 200px;
+    left: 60%;
+    top:0;
+}
+.circle3 {
+    width: 300px;
+    height: 300px;
+    left: 110%;
+    top: 0;
+}
+/* 第二行的样式 */
+.row2-circle1{
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    top: 24%;
+}
+.row2-circle2{
+    width: 100px;
+    height: 100px;
+    left: 30%;
+    top: 22%;
+}
+.row2-circle3{
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    top: 30%;
+}
+/* 第三样式 */
+.row3-circle1 {
+    width: 150px;
+    height: 150px;
+    left: 10%;
+    top: 60%;
+}
+.row3-circle2 {
+    width: 400px;
+    height: 400px;
+    left: 80%;
+    top: 50%;
+}
+
+/* 圆圈的样式over */
+/* 第一屏样式start */
+.section1 {
+    perspective: 1000px
+}
+.pic1 {
+    transition: all 2s;
+    width: 880px;
+    height: 320px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate3d(-50%,-50%,1200px) rotateY(-360deg);
+    background: url(../images/skin.gif) no-repeat;
+}
+/* 第一屏样式over */
+/* 第二屏样式 start */
+
+/* 第二屏样式 over */
+.section2 {
+    perspective: 1000px;
+} 
+.box53 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-50%,-2000px) scale(0.1);
+    transition: all 2s;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 圆圈动画组 */
+.circle{
+    position: absolute;
+    border-radius: 50%;
+    background: -webkit-linear-gradient(top,#fff,hsla(0, 2%, 64%, 0.705) );
+    animation: circle 60s linear infinite;
+    transform-origin: center;
+}
+@keyframes circle {
+    from{
+        transform: translateX(0%) rotateZ(0);
+    }
+    to{
+        transform: translateX(-1400px) rotateZ(-3600deg);
+    }
+}
+ 
