@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>心动的感觉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            perspective: 500px;
+        }
+        .move{
+            width: 200px;
+            height: 340px;
+            position: absolute;
+           animation: move 0.8s linear infinite; 
+           left: 50%;
+        }
+        .left {
+            width: 200px;
+            height: 340px;
+            position: absolute;
+            left: -5%;
+            top: 10%;
+           border-radius: 200px 200px 0 0;
+            transform-origin: left bottom;
+            transform: rotateZ(45deg) ;
+            box-shadow: -3px -1px 11px 0px rgb(231, 12, 12);
+            background:linear-gradient(to left,red 50%,rgba(238, 18, 18, 0.844));  
+        }
+        .right {
+            width: 200px;
+            height: 340px;
+            position: absolute;
+           border-radius: 200px 200px 0 0;
+           left: 36%;
+           top: 9.9%;
+           transform-origin: 100% 100%;
+           transform: rotateZ(-45deg) ;
+           box-shadow: -3px -1px 11px 0px rgb(226, 12, 12);
+            background: red;
+        }
+        @keyframes move {
+            50%{
+                transform:  scale(1.2);
+            }
+            100%{
+                transform:  scale(1)
+            }
+        }
+   
+    
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="move">
+
+            <div class="left">
+
+                </div>
+           <div class="right">
+
+
+    </div>
+       
+        
+    </div>
+</body>
+</html>

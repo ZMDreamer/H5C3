@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转的六面体</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .revolve {
+            position: relative;
+            margin: 200px auto;
+            width: 800px;
+            height: 400px;
+            background:pink;
+            perspective: 1000px;
+
+        }
+        ul {
+
+            width: 200px;
+            height: 200px;
+            list-style-type: none;
+            position: absolute;
+            left: 24%;
+            top: 6%;
+            transform-style: preserve-3d;
+            animation: revolve 3s linear infinite;
+            transform: rotate3d(1,1,0,-30deg);
+            transform-origin: 100px 100px;
+        }
+        @keyframes revolve {
+            from{
+                transform: rotate3d(1,1,1,0deg)
+            }
+            to{
+                 transform: rotate3d(1,1,1,-360deg);
+            }
+        }
+        img {
+               width: 200px;
+               height: 200px;
+           } 
+        li {
+            width: 200px;
+            height: 200px;
+            left: 50%;
+            top: 50%;
+            position: absolute;
+        }
+        li:nth-child(1){
+            transform: rotateX(0deg)   translateZ(100px);
+        }
+        li:nth-child(2){
+            transform: rotateX(90deg)   translateZ(100px);
+        }
+        li:nth-child(3){
+            transform: rotateX(180deg)   translateZ(100px);
+        }
+        li:nth-child(4){
+            transform: rotateX(270deg)   translateZ(100px);
+        }
+        li:nth-child(5){
+            transform:  rotateY(90deg)  translateZ(100px);
+        }
+        li:nth-child(6){
+            transform:  rotateY(270deg) translateZ(100px);
+        }
+       
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="revolve">
+        <ul>
+            <li><img src="./images/dog.gif" alt=""></li>
+            <li><img src="./images/dog.gif" alt=""></li>
+            <li><img src="./images/dog.gif" alt=""></li>
+            <li><img src="./images/dog.gif" alt=""></li>
+            <li><img src="./images/dog.gif" alt=""></li>
+            <li><img src="./images/dog.gif" alt=""></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

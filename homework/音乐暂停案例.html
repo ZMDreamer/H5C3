@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #music{
+            width:60px ;
+            height:60px;
+            border-radius: 50%;
+            background-color: pink;
+        }
+        .music{
+            background:url('./video/music_03.png') no-repeat;
+            transition: all 2s;
+        }
+        .music2{
+            background:url('./video/music1_03.png') no-repeat;
+            transition: all 2s;
+        }
+        #video{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div class="music" id="music">
+    <audio id="audio" src="./video/spring.mp3" autoplay loop ></audio>
+</div>
+
+
+<div class="ve start" id="ve">
+    <video  id="video" src="./video/mp4.mp4"  loop ></video>
+</div>
+<script>
+    // 音乐暂停播放 
+    var music = document.querySelector('#music');
+    var audio = document.querySelector('#audio');
+    music.onclick = function() {
+        if (this.classList.contains('music')) {
+            this.classList.remove('music');
+            this.classList.add('music2');
+            audio.pause();
+        }else {
+            this.classList.remove('music2');
+            this.classList.add('music');
+            audio.play();
+        }
+    }
+    //视频暂停部分
+    var video = document.querySelector('#video');
+    var ve = document.querySelector('#ve');
+    ve.onclick = function() {
+        if (this.classList.contains('start')) {
+            this.classList.remove('start');
+            video.play();
+        
+        }else {
+            this.classList.add('start');
+            video.pause();
+        }
+    } 
+        
+    
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

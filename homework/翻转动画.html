@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>翻转动画</title>
+    <style>
+        .rotate {
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+
+        }
+        ul {
+            width: 100px;
+            height: 40px;
+            list-style-type: none;
+            transform-style: preserve-3d;
+            transition: all 2s;
+            text-align: center;
+            line-height: 40px;
+
+        }
+        ul:hover {
+            transform: rotateX(-90deg) translateZ(20px);
+        }
+        
+        li {
+            width: 100px;
+            height: 40px;
+            position: absolute;
+
+        }
+        li:nth-child(1){
+            background-color: skyblue;
+            
+
+            
+        }
+        li:nth-child(2){
+            position: absolute;
+            background-color: pink;
+            transform: translateZ(-20px) translateY(-20px) rotateX(90deg) ;
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="rotate">
+        <ul>
+            <li>创智博客</li>
+            <li>黑马教学</li>
+        </ul>
+
+
+
+    </div>
+</body>
+</html>
