@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择多文件预览</title>
+</head>
+<body>
+   文件上传: <input type="file" name = "myfile" id ="myfile" onchange="getfile()" multiple>
+   <input type="button" value = "提交文件">
+</body>
+</html>
+<script src="./jquery.min.js"></script>
+<script>
+    function getfile() {
+        var file = $('#myfile').prop('files');
+     for(var i = 0; i < file.length; i++) {
+         var render = new FileReader();
+         render.readAsDataURL(file[i]);
+         render.onload = function (e) {
+             var img =$('<img>');
+             img.attr('src', render.result);
+             $('body').append(img);
+        }
+     }
+
+
+    }
+  
+
+
+
+
+
+
+
+
+</script>
