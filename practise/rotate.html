@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转的帅哥</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        perspective: 600px;
+
+    }
+    .box {
+        width: 268px;
+        height: 418px;
+        margin: 300px auto;
+        position: relative;
+        transform-style: preserve-3d;
+        background: url("./images/2.jpg") no-repeat center;
+        animation: move 4s linear infinite;
+        
+    }
+    .box:hover {
+        animation-play-state: paused;
+    }
+    @keyframes move {
+        100%{
+            transform: rotateY(360deg);
+        }
+    }
+    img {
+        width: 100px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    
+    .img-1 {
+        transform: rotateY(0deg) translate(-50%,-50%)  translateZ(220px) ;
+    }
+    .img-2 {
+        transform: rotateY(45deg) translate(-50%,-50%)  translateZ(220px) ;
+    }
+    .img-3 {
+        transform: rotateY(90deg) translate(-50%,-50%)  translateZ(220px) ;
+    }
+    .img-4 {
+        transform:rotateY(135deg) translate(-50%,-50%)  translateZ(220px) ;
+    }
+    .img-5 {
+        transform: rotateY(180deg) translate(-50%,-50%)  translateZ(220px);
+    }
+    .img-6 {
+        transform:rotateY(225deg) translate(-50%,-50%)  translateZ(220px);
+    }
+    .img-7 {
+        transform:rotateY(270deg) translate(-50%,-50%)  translateZ(220px) ;
+    }
+    .img-8 {
+        transform: rotateY(325deg) translate(-50%,-50%)  translateZ(220px) ;
+    }
+    
+
+</style>
+<body>
+    <div class="box">
+        <img src="./images/1.jpg" class = "img-1">
+        <img src="./images/1.jpg" class = "img-2">
+        <img src="./images/1.jpg" class = "img-3">
+        <img src="./images/1.jpg" class = "img-4">
+        <img src="./images/1.jpg" class = "img-5">
+        <img src="./images/1.jpg" class = "img-6">
+        <img src="./images/1.jpg" class = "img-7">
+        <img src="./images/1.jpg" class = "img-8">
+    </div>
+</body>
+</html>

@@ -8,7 +8,7 @@ $(function(){
         scrollingSpeed: 1000,
         onLeave: function(index,nextIndex,direction){
             // 第一页二动画的效果start
-            $('.pic1').attr('style','');
+            $('.remove').attr('style','');
             if (nextIndex==1) {
                 $('.pic1').css('transform','translate3d(-50%,-50%,0px)  rotateY(0deg)');
                 //背景旋转效果
@@ -29,6 +29,11 @@ $(function(){
                 
             }else{
                 $('.box53').css('transform','translate3d(-50%,-50%,-1000px) scale(0.1)')
+            }
+            //第三页动画效果
+            if (nextIndex == 3) {
+                $('.homePage').css( {"transform": "translate3d(-50%,-50%,0px) rotateX(30deg )" , left:"80%"})
+                $('.title').css({"transform": "translateZ(200px)","left":"30%"})
             }
           
         }
