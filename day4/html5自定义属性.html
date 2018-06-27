@@ -15,15 +15,23 @@
     </div>
 </body>
 </html>
+<script src="./jquery.min.js"></script>
 <script>
-var dv = document.querySelector('div');
-console.log(dv.dataset);  //得到的是自定义属性的对象
-console.log(dv.dataset.age) //获取里面的一个值
-console.log(dv.dataset.firstName) //获取的时候遵循驼峰命名法
-//设置自定义属性方法
- dv.dataset.backgroundColor = "red";
+// var dv = document.querySelector('div');
+// console.log(dv.dataset);  //得到的是自定义属性的对象
+// console.log(dv.dataset.age) //获取里面的一个值
+// console.log(dv.dataset.firstName) //获取的时候遵循驼峰命名法
+// //设置自定义属性方法
+//  dv.dataset.backgroundColor = "red";
 // //移除自定义属性的方法
 //dv.dataset.age = null;
-dv.dataset['age'] = null;
-
+//dv.dataset['age'] = null;
+//jquery中获操作data自定义属性的方法data();
+// console.log($('div').data("age"));
+// console.log($('div').data('firstName'),11111);
+// console.log($('div').data('first-name'),22222);
+//设置属性的方法
+$('div').data('sex','female');
+//需要注意的是，data()的值进行修改并不会影响到DOM元素上的data-*属性的改变。data()的本质其实是将一个 “cache” 附加到了对象上，并使用了一个特殊的属性名称。所以此处在元素上是看不见sex属性的,但是通过下面的打印确实可以看见该属性的值是存在的
+console.log($('div').data('sex'))
 </script>
