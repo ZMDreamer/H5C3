@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage</title>
+</head>
+<body>
+    <input type="text" id = "userName">
+    <input type="button" value="点击设置" id = "setData">
+    <input type="button" value="点击获取" id = "getData">
+    <input type="button" value="点击删除" id = "removeData">
+
+</body>
+</html>
+<script>
+  //localStorage的特点
+  // 1) 存储文件大小: 20M
+  // 2) 存储的数据在硬盘上
+  // 3) 同一浏览器其它窗口有, 不同浏览器也没有, 关闭当前窗口数据还在,必须手动删除
+  //设置localStorage的值
+    document.querySelector('#setData').onclick = function() {
+        var name = document.querySelector('#userName').value;
+        window.localStorage.setItem('userName', name);
+    }
+//获取localStorage的值
+document.querySelector('#getData').onclick = function() {
+        var name = window.localStorage.getItem('userName');
+        console.log(name);
+    }
+    //删除localStorage的值
+    document.querySelector('#removeData').onclick = function() {
+        console.log(11);
+       window.localStorage.removeItem('userName');
+    }
+</script>

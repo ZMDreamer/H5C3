@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin:0;
+		padding: 0;
+	}
+	.box1,
+	.box2,
+	.box3 {
+		margin:100px;
+		width: 300px;
+		height: 300px;
+		float: left;
+	}
+	.box1 {
+		border:1px solid red;
+	}
+	.box2 {
+		border: 1px solid blue;
+	}
+	.box3 {
+		border: 1px solid green;
+	}
+	p {
+		padding-left: 2px;
+		height: 30px;
+		line-height: 30px;
+		background-color: yellow;
+		margin-bottom: 10px;
+		display: block;
+		width: 95%;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+</body>
+</html>
+<script>
+	var box1 = document.querySelector('.box1');
+	for(var i=0; i<7;i++){
+		var p = document.createElement('p');
+		box1.appendChild(p);
+		p.innerText = "这是第"+(i+1)+"p标签";
+		p.setAttribute("draggable","true");
+		p.id = "txt"+ (i+1);
+
+	}
+	var obj  = null;
+	document.ondragstart = function(e) {
+		obj = e.target;
+		// console.log(obj.id);
+		e.dataTransfer.setData("text/html",e.target.id)
+	}
+	document.ondragover = function(e){
+		e.preventDefault();
+	}
+	document.ondrop = function(e) {
+		// console.log(e.target);
+		// e.target.appendChild(obj);
+		var id = e.dataTransfer.getData("text/html");
+		/*e.target.parentNode.appendChild(document.getElementById(id))*/
+		// e.target.parentNode.appendChild(p);
+		console.log(document.getElementById(id),111)
+		console.log(e.target,2222)
+
+		/*if(e.target.parentNode==obj.parentNode){
+			e.target.parentNode.appendChild(document.getElementById(id))
+		}else if(!e.target.getAttribute("draggable")){
+
+			console.log(e.target);
+			e.target.parentNode.appendChild(document.getElementById(id))
+		}*/
+
+
+		if(!e.target.getAttribute("draggable")){
+
+			console.log(e.target);
+			e.target.appendChild(document.getElementById(id))
+			
+		}else{
+			e.target.parentNode.appendChild(document.getElementById(id))
+		}
+	}
+
+
+
+
+
+
+
+
+
+</script>

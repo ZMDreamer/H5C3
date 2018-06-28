@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    .redbox {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        border: 1px solid red;
+    }
+    .bluebox {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        border: 1px solid blue;
+        margin-left: 20px;
+    }
+    p {
+        background-color: pink;
+        position: absolute;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="redbox">
+        <p draggable="true">被拖拽的元素</p>
+    </div>
+    <div class="bluebox"></div>
+</body>
+</html>
+<script>
+    var redbox = document.querySelector('.redbox');
+    var bluebox = document.querySelector('.bluebox');
+    var p = document.querySelector('p');
+    // p.ondragstart = function(){
+    //     console.log("ondragstart");
+    // }
+    // p.ondrag = function(){
+    //     // console.log('onDrag');
+    // }
+    // p.ondragleave = function() {
+    //     console.log('ondragleave')
+    // }
+    // p.ondragend =function() {
+    //     console.log('ondragend')
+    // }
+    // bluebox.ondragenter = function(){
+    //     console.log("ondragenter");
+    // }
+    bluebox.ondrop = function(){
+        console.log("ondrop,1111");
+        bluebox.appendChild(p);
+    }
+    bluebox.ondragover= function(e){
+        e.preventDefault();
+        // console.log("ondragover");
+    }
+    // bluebox.ondragleave = function(){
+    //     console.log("ondragleave");
+    // }
+    redbox.ondragover= function(e){
+        e.preventDefault();
+        // console.log("ondragover");
+    }
+    redbox.ondrop = function() {
+        redbox.appendChild(p);
+    }
+   
+
+
+</script>

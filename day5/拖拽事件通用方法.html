@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .redbox {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            border: 1px solid red;
+        }
+
+        .bluebox {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            border: 1px solid blue;
+            margin-left: 20px;
+        }
+
+        .pinkbox {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            border: 1px solid blue;
+            margin-left: 20px;
+        }
+
+        p {
+            background-color: pink;
+            position: absolute;
+        }
+
+        #p2 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="redbox">
+        <p draggable="true" id="p1">被拖拽的元素</p>
+        <p draggable="true" id="p2">被拖拽的元素2</p>
+    </div>
+    <div class="bluebox"></div>
+    <div class="pinkbox"></div>
+</body>
+
+</html>
+<script>
+    document.ondragstart = function (e) {
+        //通过e来记录当前拖拽元素的的id
+        console.log(e);
+
+        e.dataTransfer.setData('text/html', e.target.id);
+    }
+    document.ondragover = function (e) {
+        //阻止浏览器默认行为
+        e.preventDefault();
+    }
+    document.ondrop = function (e) {
+        var id = e.dataTransfer.getData('text/html');
+        console.log(id);
+        //    e.target.appendChild(document.querySelector("#" + id))
+        e.target.appendChild(document.getElementById(id));
+
+        if (!e.target.getAttribute("draggable")) {
+
+            //console.log(e.target);
+            e.target.appendChild(document.getElementById(id))
+
+        } else {
+            e.target.parentNode.appendChild(document.getElementById(id))
+        }
+    }
+</script>
