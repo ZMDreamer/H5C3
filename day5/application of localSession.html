@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localSession and template</title>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./art/js/template-web.js"></script>
+    <script>
+        $(function () {
+            //first step: throug localSession method to get the log "userName", than append to ul tag
+            var list = window.localStorage.getItem('userName') || '[]';
+            var tmp =JSON.parse(list);
+             // use "for" circle to create the li tag 
+             var str = "";
+                for(var i = 0; i < tmp.length; i++) {
+                    str +=`<li>${tmp[i]}</li>`
+                }
+                $('ul').html(str);
+            $('#btn').click(function () {
+                //second step: get the value of text and push in the temp 
+                var value = $('#userName').val();
+                tmp.push(value);
+                //third step: throug the localSession.setItem method to record the value
+                window.localStorage.setItem('userName', JSON.stringify(tmp));
+                   // use "for" circle to create the li tag 
+             var str = "";
+                for(var i = 0; i < tmp.length; i++) {
+                    str +=`<li>${tmp[i]}</li>`
+                }
+                $('ul').html(str);
+
+               
+            })
+            
+
+
+
+
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userName">
+    <br>
+    <input type="button" value="点击获取搜索记录" id = "btn">
+    <div class="record">
+        <ul>
+        </ul>
+    </div>
+</body>
+
+</html>

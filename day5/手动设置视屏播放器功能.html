@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="./css/css.css">
+</head>
+<body>
+<h3 class="playerTitle">视频播放器</h3>
+<div class="player">
+    <video src="./mp4/chrome.mp4"></video>
+    <div class="controls">
+        <a href="javascript:;" class="switch fa fa-play"></a>
+        <a href="javascript:;" class="expand fa fa-expand"></a>
+        <div class="progress">
+            <div class="bar"></div>
+            <div class="loaded"></div>
+            <div class="elapse"></div>
+        </div>
+        <div class="time">
+            <span class="currentTime">00:00:00</span>
+            
+            <span class="totalTime">00:00:00</span>
+
+            <div class="vol" style="width:90px;display: inline-block">
+                <span>1 </span>
+                <span>2 </span>
+                <span>3 </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/jquery.min.js"></script>
+<script>
+    //获取视屏元素,因为h5video新方法所以必须转换为dom对象
+    var video = $("video")[0];
+    //给播放按钮添加点击事件
+    $('.switch').click(function(){
+        $(this).toggleClass('fa-pause','fa-play');
+        //点击判断如果视屏是停止状态就播放,否则就停止
+        if (video.paused) {
+            video.play();
+        }else{
+            video.pause();
+        }
+    });
+    //点击expand让视频实现全屏效果
+    $('.expand').click(function(){
+        console.log(111)
+        if (video.requestFullScreen) {
+            video.requestFullScreen();
+        }else if(video.webkitRequestFullScreen){
+            video.webkitRequestFullScreen();
+        }else if(video.mozRequestFullScreen) {
+            video.mozRequestFullScreen();
+        }else if(video.msRequestFullScreen) {
+            video.msRequestFullScreen();
+        }
+    })
+    //模拟服务器加载视频的缓存时间
+    setTimeout(() => {
+        video.style.display = "block";
+    }, 2000);
+    //当视频可以播放的时候获取文件的总时长显示在相应的位置 console.log(111)
+    video.oncanplay = function() {
+        var totalTime = video.duration;
+        //这种方法获取的时间是一个以秒为单位的小数值必须格式化时间显示在里面
+        var getTime = formatTime(totalTime);
+        $('.totalTime').text(getTime);
+    }
+    //播放视频的进度时显示到currenttime里面
+    video.ontimeupdate = function(){
+        var currentTime = video.currentTime;
+        //调用已经封装好的函数来进行时间格式化并显示到currentTime标签里面
+        $('.currentTime').text(formatTime(currentTime));
+        //根据当前的播放视频的时间和视频总长度的比例来得到播放进度条的宽度并且设置出来 
+        var currentWidth = (video.currentTime/video.duration)*100 + '%';
+        $('.elapse').css('width',currentWidth);
+    }
+    //给bar那个透明盒子添加点击事件, 来实现视频的前进后退功能
+    $('.bar').click(function(e){
+        //根据鼠标点击时在盒子里面的位置和盒子的总长度对应的时间来得到当前的时间来显示currenttime
+        var offset = e.offsetX;
+        var currentTime = (offset/$('.progress').width())*video.duration;
+        video.currentTime = currentTime;
+        //因为设置了video.currentTime事件后会触发video.oncanplay事件
+    })
+    //视频播放完全后让视频回到开始 并移除播放模式的样式
+    video.onended = function(){
+        video.currentTime = 0;
+        $('.switch').removeClass('fa-pause').addClass('fa-play');
+    }
+
+
+//格式化时间代码可以封装为一个函数
+    function formatTime(time){
+        var hour = Math.floor(time/60/60);
+        var minute = Math.floor(time/60%60);
+        var second = Math.floor(time%60)
+        hour = hour >= 10? hour: '0'+ hour;
+        minute = minute >= 10? minuter: '0'+minute;
+        second = second >= 10? second: '0'+ second;
+        return hour + ':' + minute + ':' + second;
+    } 
+</script>
+</body>
+</html>
